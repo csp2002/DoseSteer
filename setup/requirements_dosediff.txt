@@ -1,0 +1,16 @@
+# Environment "dosediff" (Python 3.11): data preparation (OpenKBP, GDP-HMM); DoseDiff and DoseDiT on OpenKBP
+# (training, test, DRG steering)
+--extra-index-url https://download.pytorch.org/whl/cu121
+torch==2.4.1
+torchvision==0.19.1
+numpy==2.0.2
+scipy==1.13.1
+pandas==2.2.2
+matplotlib==3.9.2
+SimpleITK==2.4.0
+pydicom==2.4.4
+opencv-python-headless==4.10.0.84
+albumentations==2.0.8
+einops==0.8.0
+tensorboardX==2.6.2.2
+tqdm==4.67.3
