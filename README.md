@@ -102,9 +102,8 @@ python drg/steer_gdp.py --ckpt runs/gdp_hmm/<run>/model_best_mae.pth
 
 Without `--ckpt`, MD-Dose and DoseDiT load the best checkpoints of their default training runs. Each run writes
 `results/<setting>/metrics.json` (per case: official score, DVH score, target error, voxel MAE inside and outside the
-structures; `--save_dose` adds the doses) and prints the cohort means and DRG's improvement of the official score (paper:
-DoseDiff ~3 %, MD-Dose ~5 %, DoseDiT ~5 %, GDP-HMM ~11 %). `steer_gdp.py --shard i --nshards n` splits the plans over
-GPUs.
+structures; `--save_dose` adds the doses) and prints the cohort means. `steer_gdp.py --shard i --nshards n` splits the
+plans over GPUs.
 
 To steer another diffusion predictor, wrap it like `drg/specs_openkbp.py` (the interface is in the docstring of
 `drg/core.py`).
