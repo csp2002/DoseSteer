@@ -3,7 +3,7 @@
   python models/dosediff/pred_gdp.py --ckpt runs/gdp_hmm/<run>/model_best_mae.pth
 
 Writes <ID>_pred.npy (Gy, original grid, Body-masked), per_plan.csv and summary.json
-(cohort means, overall and per site). Plans are read from the NPZ files.
+(cohort means, overall and per site).
 """
 
 import argparse

@@ -143,7 +143,7 @@ def train():
         FLAGS.mean_type,
         FLAGS.var_type,
     ).to(device)
-    # checkpoint selection as in DoseDiff: 4-step DDIM with the net_model weights (those used at test time)
+    # checkpoint selection: 4-step DDIM with the net_model weights (those used at test time)
     val_sampler = DDIMSampler(net_model, FLAGS.beta_1, FLAGS.beta_T, FLAGS.T, ddim_steps=4).to(device)
     best_mae = float("inf")
 

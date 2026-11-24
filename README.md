@@ -27,7 +27,7 @@ pip install -r setup/requirements_dosediff.txt
 
 conda create -n mddose python=3.10 -y && conda activate mddose         # PyTorch 2.6.0, CUDA 12.4
 pip install -r setup/requirements_mddose.txt
-# MD-Dose only: build its two CUDA extensions (needs nvcc 12.4; on Blackwell GPUs, PyTorch 2.7.0 and CUDA 12.8)
+# MD-Dose only: build its two CUDA extensions (needs nvcc 12.4)
 CAUSAL_CONV1D_FORCE_BUILD=TRUE pip install -e models/mddose/causal-conv1d --no-build-isolation
 MAMBA_FORCE_BUILD=TRUE pip install -e models/mddose/mamba --no-build-isolation
 ```
@@ -44,8 +44,7 @@ python preprocessing/openkbp/PSDM_OpenKBP.py   # structure masks and signed dist
 python preprocessing/openkbp/NII_to_npy.py     # 2D slices for training
 ```
 
-The three OpenKBP predictors share the result, `data/openkbp/preprocessed/`: `{train,validation,test}-pats/` (reference
-doses for evaluation), `{train,validation,test}-pats_preprocess/` (model inputs) and `NPY/` (training slices).
+The three OpenKBP predictors share the result in `data/openkbp/preprocessed/`.
 
 **GDP-HMM.** Clone the [challenge repository](https://github.com/RiqiangGao/GDP-HMM_AAPMChallenge) (its `meta_files/` list
 the plans and splits) to `data/gdp_hmm`, download the NumPy data from
@@ -64,9 +63,8 @@ selection) and `test` (356 plans: the challenge's validation set).
 ## 3. Model training and evaluation
 
 The scripts' defaults are the paper's settings. Each training keeps the checkpoint with the lowest validation MAE
-(`*_best_mae.*`). The test scripts sample the test cases with 8 deterministic DDIM steps and write the doses and official
-scores under `runs/<model>/results/`. Scripts run on GPU 0 unless `--gpu` is given (`train_struc.py`: set
-`CUDA_VISIBLE_DEVICES`).
+(`*_best_mae.*`). The test scripts write the doses and official scores under `runs/<model>/results/`. Scripts run on GPU
+0 unless `--gpu` is given (`train_struc.py`: set `CUDA_VISIBLE_DEVICES`).
 
 ```bash
 # DoseDiff on OpenKBP (env dosediff)

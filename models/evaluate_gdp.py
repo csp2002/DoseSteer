@@ -1,6 +1,6 @@
 """GDP-HMM evaluation helpers (Metric 1 of the challenge).
 
-Official Metric 1 (leaderboard cell of the organisers' evaluation.ipynb):
+Metric 1:
 
     union = ((ref > 5) | (pred > 5)) & (Body > 0)
     ref5  =  (ref > 5)               & (Body > 0)

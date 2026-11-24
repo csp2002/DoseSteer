@@ -1,7 +1,6 @@
 """Deterministic DDIM sampler (eta=0) for MD-Dose's epsilon-prediction DDPM.
 
-Timestep subsequence follows the DoseDiff/guided-diffusion 'ddimN' convention:
-range(0, T, T//N), e.g. N=4 -> [0, 250, 500, 750]. x0 is clamped to [0, 1]
+Timesteps range(0, T, T//N), e.g. N=4 -> [0, 250, 500, 750]. x0 is clamped to [0, 1]
 each step and eps is recomputed from the clamped x0 before the update.
 """
 

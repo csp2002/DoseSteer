@@ -34,15 +34,15 @@ parser.add_argument('--ckpt', type=str, default='model_best_mae.pkl',
 parser.add_argument('--data_dir', type=str, default='data/openkbp/preprocessed/test-pats_preprocess')
 parser.add_argument('--gt_dir', type=str, default='data/openkbp/preprocessed/test-pats')
 parser.add_argument('--out_root', type=str, default='runs/mddose/results')
-parser.add_argument('--use_ema', type=int, default=0, help='0 = net_model weights (the paper), 1 = ema_model')
+parser.add_argument('--use_ema', type=int, default=0, help='0 = net_model weights, 1 = ema_model')
 parser.add_argument('--bs', type=int, default=128, help='slices per sampling batch')
 parser.add_argument('--T', type=int, default=1000)
 parser.add_argument('--beta_1', type=float, default=1e-4)
 parser.add_argument('--beta_T', type=float, default=0.02)
 parser.add_argument('--ddim', type=int, default=8,
-                    help='N>0 = deterministic N-step DDIM (the paper: 8); 0 = original 1000-step DDPM sampler')
+                    help='N>0 = deterministic N-step DDIM; 0 = 1000-step DDPM sampler')
 parser.add_argument('--init', type=str, default='randn', choices=['minmax', 'randn'],
-                    help="x_T init: 'randn' = N(0, 1) (the paper); 'minmax' = min-max-scaled N(0, 1), as in train_struc.py")
+                    help="x_T init: 'randn' = N(0, 1); 'minmax' = min-max-scaled N(0, 1)")
 args = parser.parse_args()
 
 TEST_COND_DIR = args.data_dir

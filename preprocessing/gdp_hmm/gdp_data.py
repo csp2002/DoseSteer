@@ -35,7 +35,7 @@ import torch
 import torch.nn.functional as F
 from scipy import ndimage
 
-# organisers' lists; 'Chiasim' typo fixed to the NPZ key 'Chiasm'
+# organisers' structure lists
 HaN_OAR_LIST = ['Cochlea_L', 'Cochlea_R', 'Eyes', 'Lens_L', 'Lens_R', 'OpticNerve_L', 'OpticNerve_R',
                 'Chiasm', 'LacrimalGlands', 'BrachialPlexus', 'Brain', 'BrainStem_03', 'Esophagus',
                 'Lips', 'Lungs', 'Trachea', 'Posterior_Neck', 'Shoulders', 'Larynx-PTV', 'Mandible-PTV',
@@ -58,7 +58,7 @@ B_OAR, B_OPT, B_PTV, B_BODY, N_BITS = 0, 32, 35, 38, 39
 
 
 # ----------------------------------------------------------------------------- meta
-EXCLUDED = {'0522c0009+9Ag+MOS_29166'}   # corrupt in the first data release; the other 2727 training plans are used
+EXCLUDED = {'0522c0009+9Ag+MOS_29166'}   # corrupt file
 
 
 def read_meta(csv_path, dev_split=None, site=None, min_presc=40.0):
